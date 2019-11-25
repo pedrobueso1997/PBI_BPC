@@ -22,8 +22,8 @@ This file looks for the presence of a specific sequence in a series of Arabidops
 
 The results obtained when running this program include:
 
-- contig.gff3: a GFF3 file with the "targeting vector" features characterised, taking into consideration the contig coordinates.
-- chromosome.gff3: a GFF3 file with the "targeting vector" features characterised, taking into consideration the chromosome coordinates. 
+- contig.gff3: a GFF3 file with "targeting vector" features characterised, considering contig coordinates.
+- chromosome.gff3: a GFF3 file with "targeting vector" features characterised, considering chromosome coordinates. 
 - no_target.txt: a list with the initial genes that did not have the target sequence.
 
 ### Gems required
