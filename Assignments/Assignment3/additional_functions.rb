@@ -47,12 +47,12 @@ end
 
 #This function receives a local file, creates biosequence objects from its entries, adds "targeting vector" features features and puts them in a gff3 format
 
-def analyse_gene_file(gene_file, genes_to_study, genes_studied, genes_no_target, contig_lines, chr_lines)
+def analyse_gene_file(genes_to_study_file, genes_to_study, genes_studied, genes_no_target, contig_lines, chr_lines)
   
   gene_number= 0
   genes_linked = []
   
-  gene_file.each_entry do |entry|
+  genes_to_study_file.each_entry do |entry|
      
     bio_sequence = entry.to_biosequence
     
