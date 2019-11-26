@@ -107,7 +107,7 @@ def analyse_gene_file(genes_to_study_file, genes_to_study, genes_studied, genes_
           target_end = Regexp.last_match.offset(0).last
           in_exon = false
           for exon in plus_exon_positions
-            if target_start > exon[0].to_i and target_end < exon[1].to_i
+            if target_start >= exon[0].to_i and target_end <= exon[1].to_i
               in_exon = true
               break
             end
@@ -122,7 +122,7 @@ def analyse_gene_file(genes_to_study_file, genes_to_study, genes_studied, genes_
           target_end = Regexp.last_match.offset(0).last
           in_exon = false
           for exon in minus_exon_positions
-            if target_start > exon[0].to_i and target_end < exon[1].to_i
+            if target_start >= exon[0].to_i and target_end <= exon[1].to_i
               in_exon = true
               break
             end

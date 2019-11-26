@@ -281,6 +281,7 @@ Chr4	.	targeting_vector	1112217	1112222	.	-	.	ID=AT4G02530
 Chr4	.	targeting_vector	18125392	18125397	.	-	.	ID=AT4G38840
 Chr3	.	targeting_vector	18890961	18890966	.	-	.	ID=AT3G50820
 Chr4	.	targeting_vector	17670798	17670803	.	-	.	ID=AT4G37610
+Chr4	.	targeting_vector	17671550	17671555	.	-	.	ID=AT4G37610
 Chr4	.	targeting_vector	17672347	17672352	.	-	.	ID=AT4G37610
 Chr1	.	targeting_vector	28554693	28554698	.	-	.	ID=AT1G76100
 Chr1	.	targeting_vector	2641158	2641163	.	-	.	ID=AT1G08380
