@@ -41,16 +41,6 @@ def create_gene_file(genes_to_study)
   puts "The local file was created"
   return genes_to_study_file
   
-  #for gene_to_study in genes_to_study
-  #  address = URI('http://www.ebi.ac.uk/Tools/dbfetch/dbfetch?db=ensemblgenomesgene&format=embl&id='+gene_to_study)
-  #  response = fetch(address)
-  #  record = response.body
-  #  bioembl = Bio::EMBL.new(record)
-  #  biosequence = bioembl.to_biosequence()
-  #  puts bioembl.class
-  #  puts biosequence.class
-  #end
-
 end
 
 ##################################################################################################################################
@@ -113,7 +103,7 @@ def analyse_gene_file(gene_file, genes_to_study, genes_studied, genes_no_target,
       
       if plus_exon_positions != []
         bio_sequence.seq.scan(plus_target) do |target|
-          target_start = Regexp.last_match.offset(0).first
+          target_start = Regexp.last_match.offset(0).first + 1
           target_end = Regexp.last_match.offset(0).last
           in_exon = false
           for exon in plus_exon_positions
@@ -122,13 +112,13 @@ def analyse_gene_file(gene_file, genes_to_study, genes_studied, genes_no_target,
               break
             end
           end
-          plus_target_positions << [target_start + 1, target_end] if in_exon == true 
+          plus_target_positions << [target_start, target_end] if in_exon == true 
         end
       end
       
       if minus_exon_positions != []
         bio_sequence.seq.scan(minus_target) do |target|
-          target_start = Regexp.last_match.offset(0).first
+          target_start = Regexp.last_match.offset(0).first + 1
           target_end = Regexp.last_match.offset(0).last
           in_exon = false
           for exon in minus_exon_positions
@@ -137,7 +127,7 @@ def analyse_gene_file(gene_file, genes_to_study, genes_studied, genes_no_target,
               break
             end
           end
-          minus_target_positions << [target_start + 1, target_end] if in_exon == true 
+          minus_target_positions << [target_start, target_end] if in_exon == true 
         end
       end  
       
