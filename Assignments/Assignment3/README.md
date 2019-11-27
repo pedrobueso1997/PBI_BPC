@@ -1,32 +1,32 @@
 # ASSIGNMENT 3
 
-In order to run this program, write one of the following commands in the Linux shell (both files must be available in the same folder):
+In order to run this program, write one of these commands in the Linux shell (both files must be available in the same folder):
 
 *$ ruby target_sequence_searcher_remote.rb ArabidopsisSubNetwork_GeneList.txt*
+
 *$ ruby target_sequence_searcher_local.rb ArabidopsisSubNetwork_GeneList.txt*
 
 ## ArabidopsisSubNetwork_GeneList.txt
 
 This file contains a list of genes from Arabidopsis thaliana, each of them in one row.
 
-## target_sequence_searcher_remote.rb, target_sequence_searcher_local.rb
+## target_sequence_searcher_remote/local.rb
 
-Both this file perform the same exact function. They look for the presence of a specific sequence in a list of Arabidopsis thaliana genes.
-They differ in the way they retrieve the information (see steps) and on their speed (the local solution is faster though it might entail problems with storage)
+Both this file perform the same exact function. They look for the presence of a specific sequence in a list of Arabidopsis thaliana genes. They differ in the way they retrieve the information (see steps) and on their speed (the local solution is faster though it might entail problems with storage)
 
 ### Steps 
 
-    *target_sequence_searcher_remote.rb*
+**target_sequence_searcher_remote.rb**
     
 1.  It iterates over each gene in the list.
 2.  It retrieves the ensembl genome file and converts it into a biosequence.
 
-    *target_sequence_searcher_local.rb*
+**target_sequence_searcher_local.rb**
 
 1.  It retrieves the ensembl genome file for all the genes in the list and bring it to local.
 2.  It iterates over each entry in the file and converts it to biosequence.
 
-    *target_sequence_searcher_remote.rb and target_sequence_searcher_local.rb*
+**target_sequence_searcher_remote.rb and target_sequence_searcher_local.rb**
     
 3.  It retrieves the exon positions (as the targets are only valid inside exons) and stores those exons belonging to overlapping genes.
 4.  It searches for the target using regular expressions on the sequence.
