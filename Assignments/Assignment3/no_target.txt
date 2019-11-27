@@ -1,5 +1,3 @@
-This is a list of the initial genes that don't have the target sequence in a coding region
-
 AT4G27030
 AT2G13360
 AT3G28270
