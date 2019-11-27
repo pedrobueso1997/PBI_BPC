@@ -28,7 +28,7 @@ Both this file perform the same exact function. They look for the presence of a 
 
 **target_sequence_searcher_remote.rb and target_sequence_searcher_local.rb**
     
-3.  It retrieves the exon positions (where targets are valid) and stores those exons belonging to overlapping genes.
+3.  It retrieves the exon positions (where targets are valid) and stores the exons belonging to overlapping genes.
 4.  It searches for the target using regular expressions on the sequence.
 5.  It adds the new features found to the biosequence.
 6.  It adds the updated biosequence to an array of biosequences.

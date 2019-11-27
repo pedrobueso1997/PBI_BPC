@@ -39,7 +39,7 @@ biosequences = []
 
 #We retrieve the ensembl genome file for all the genes in the list and bring it to local
 #We iterate over each entry in the file and converts it to biosequence
-#We retrieve the exon positions (as the targets are only valid inside exons) and store those exons belonging to overlapping genes
+#We retrieve the exon positions (where targets are valid) and store the exons belonging to overlapping genes
 #We search for the target using regular expressions on the sequence
 #We add the new features found to the biosequence
 #We add the updated biosequence to an array of biosequences
@@ -63,7 +63,7 @@ genes_file.each_entry do |entry|
   end
 end
 
-#We repeat the same process for the overlapping genes, with the only difference that the search is restricted to the overlapping exons.
+#We repeat the same process for the overlapping genes, but the search is restricted to the overlapping exons.
 
 puts
 puts "Searching for the overlapping genes..."
