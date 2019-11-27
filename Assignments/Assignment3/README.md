@@ -12,7 +12,7 @@ This file contains a list of genes from Arabidopsis thaliana, each of them in on
 
 ## target_sequence_searcher_remote/local.rb
 
-Both this file perform the same exact function. They look for the presence of a specific sequence in a list of Arabidopsis thaliana genes. They differ in the way they retrieve the information (see steps) and on their speed (the local solution is faster though it might entail problems with storage)
+Both this file perform the same exact function. They look for the presence of a specific sequence in a list of Arabidopsis thaliana genes. They differ in the way they retrieve the information (see steps) and on their speed (the local solution is faster though it might entail problems with storage).
 
 ### Steps 
 
@@ -23,16 +23,16 @@ Both this file perform the same exact function. They look for the presence of a 
 
 **target_sequence_searcher_local.rb**
 
-1.  It retrieves the ensembl genome file for all the genes in the list and bring it to local.
+1.  It retrieves the ensembl genome file for all the genes in the list and brings it to local.
 2.  It iterates over each entry in the file and converts it to biosequence.
 
 **target_sequence_searcher_remote.rb and target_sequence_searcher_local.rb**
     
-3.  It retrieves the exon positions (as the targets are only valid inside exons) and stores those exons belonging to overlapping genes.
+3.  It retrieves the exon positions (where targets are valid) and stores those exons belonging to overlapping genes.
 4.  It searches for the target using regular expressions on the sequence.
 5.  It adds the new features found to the biosequence.
 6.  It adds the updated biosequence to an array of biosequences.
-7.  The same process is repeated for the overlapping genes, with the only difference that the search is restricted to the overlapping exons.
+7.  The same process is repeated for the overlapping genes, but the search is restricted to the overlapping exons.
 8.  It creates the GFF3 files, both for genes and chromosomes, and the gene file with no targets
 
 ### Results
