@@ -2,7 +2,7 @@
 
 In order to run this program, write this command in the Linux shell (both files must be available in the same folder):
 
-*$ ruby br_hit.rb proteome1.fa proteome2.fa*
+*$ ruby orthologs_searcher.rb proteome1.fa proteome2.fa*
 
 ## proteome1.fa and proteome2.fa
 
@@ -10,7 +10,7 @@ These are multifasta files. They can contain either DNA or protein sequences.
 
 ## br_hit.rb
 
-This file searches for orthologs between two given proteomes
+This file searches for orthologs between two given proteomes, using Best Reciprocal Hits (BRHs) approach.
 
 ### Steps 
 
@@ -42,9 +42,9 @@ It uses these gems (you might need to install them):
 
 ### Beyond the code
 
-**How does my program approaches the search of Best Reciprocal Hits?**
+**How does my code approaches the search of BRHs?**
 
-Best Reciprocal Hits (BRHs) are found when the proteins enconded by two genes, each on a different genome, find each other as the best scoring match in the other genome. In my code, that best scoring match is obtained through the parameters "-max_target_seqs 1 -max_hsps 1", which results in the report showing only one hit per query sequence. Although this is not explicit in my code, the hit selection is done in terms of e-value. 
+BRHs are found when the proteins enconded by two genes, each on a different genome, find each other as the best scoring match in the other genome. In my code, that best scoring match is obtained through the parameters "-max_target_seqs 1 -max_hsps 1", which results in the report showing only one hit per query sequence. Although this is not explicit in my code, the hit selection is done in terms of e-value. 
 
 The e-value or expect value is a parameter that describes the number of hits one can expect to see by chance when searching a database of a particular size. For instance, an e-value of 1 can be interpreted in the following way: "in a database of the current size, it is expected to see 1 match with a similar score simply by chance". The lower the e-value, the more significant the match is; it can, therefore, be used as a threshold for reporting results. One thing to take into account is that the calculation of the e-value does not only considers the score of the alignment but also the length of the query sequences; this explains why virtually identical short alignments have high e-vales (shorter sequences have higher probability of ocurring in the database purely by chance).
 
@@ -56,7 +56,7 @@ Eventually, I would like to comment on how my program reduces computational powe
 
 **How would I continue my analysis?**
 
-Looking for Best Reciprocal Hits (BRHs) is only the first step towards finding orthologs. It might be a good approximation for finding 1:1 relations, but it does not solve 1:many or many:many relations. In order to find them, we would have to build Clusters of Orthologous Groups (COGs). Both BRHs and COGs are methodologies based on sequence similarity, which is fine for identifying homologs but might not be the best solution for discerning between orthologs and paralogs.
+Looking for BRHs is only the first step towards finding orthologs. It might be a good approximation for finding 1:1 relations, but it does not solve 1:many or many:many relations. In order to find them, we would have to build Clusters of Orthologous Groups (COGs). Both BRHs and COGs are methodologies based on sequence similarity, which is fine for identifying homologs but might not be the best solution for discerning between orthologs and paralogs.
 
 Orthologs are homologs in different species that originated from an speciation event, paralogs are homologs that originated from a duplication event. Properly identifying both cases requires from having knowledge on the evolutionary history of the genes, which is why comparative genomics eventually relies on phylogenies. Therefore, my analysis should probably include a phylogenetic tree, which would make the identification of orthologs more consistant. There are several tools available for choosing the appropiate models and methodologies in such a task. Enventually, and as orthologs tend to conserve function (they do not always do), we could validate our results by doing some function comparison in the genes identified as orthologs.
 
