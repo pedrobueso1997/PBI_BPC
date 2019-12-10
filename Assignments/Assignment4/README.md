@@ -19,10 +19,10 @@ This file searches for orthologs between two given proteomes, using Best Recipro
 3.  It creates the index files necessary to do blast.
 4.  It blasts the short proteome on the long proteome (keeping only the best hit if the evalue is lower than 1e-6).
 5.  It stores the pairs query - best hit in a dictionary.
-6.  It filters, from the file long.fa, those sequences that were best hits in the blast analysis
+6.  It filters, from the file long.fa, those sequences that were best hits in the blast analysis.
 7.  It blasts the long proteome on the short proteome (keeping only the best hit if the evalue is lower than 1e-6).
 8.  It stores the pairs query - best hit in a dictionary.
-7.  It finds the orthologs (sequences that are the best hit of their best hit)
+7.  It finds the orthologs (sequences that are the best hit of their best hit).
 
 ### Results
 
