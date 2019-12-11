@@ -26,14 +26,12 @@ puts ""
 
 sequences_1 = IO.read(ARGV[0]).scan(/(>[^>]*)/m)
 sequences_2 = IO.read(ARGV[1]).scan(/(>[^>]*)/m)
-ordered = true
 if sequences_1.length < sequences_2.length
-  system("cp #{ARGV[0]} short.fa")
-  system("cp #{ARGV[1]} long.fa")
+  system("cp #{ARGV[0]} short.fa"); short_proteome = ARGV[0]
+  system("cp #{ARGV[1]} long.fa"); long_proteome = ARGV[1]
 else
-  system("cp #{ARGV[1]} short.fa")
-  system("cp #{ARGV[0]} long.fa")
-  ordered = false
+  system("cp #{ARGV[1]} short.fa"); short_proteome = ARGV[1]
+  system("cp #{ARGV[0]} long.fa"); long_proteome = ARGV[0]
 end
 
 #We determine the type of molecule (DNA or protein) for each file
@@ -118,9 +116,10 @@ end
 
 puts "Finding the orthologs..."
 File.open('orthologs.txt', 'w') do |myfile|
+  myfile.puts "#{short_proteome}\t\t\t#{long_proteome}"
   for query in short_pairs.keys
     reciprocal_hit = long_pairs[short_pairs[query]]
-    myfile.puts "#{query.split("|")[0]} and #{short_pairs[query]} are orthologs" if query == reciprocal_hit
+    myfile.puts "#{query.split("|")[0]}\t\t\t#{short_pairs[query]}" if query == reciprocal_hit
   end
 end
 puts "The file orthologs.txt was created"
@@ -128,12 +127,7 @@ puts
 
 #We remove intermediate files but keep the ones for the blast report (they migth be useful for the researcher)
 
-if ordered == true
-  system("cp short_blast_report.txt #{ARGV[0]}.blast_report.txt")
-  system("cp long_blast_report.txt #{ARGV[1]}.blast_report.txt")
-else
-  system("cp short_blast_report.txt #{ARGV[1]}.blast_report.txt")
-  system("cp long_blast_report.txt #{ARGV[0]}.blast_report.txt")
-end
+system("cp short_blast_report.txt #{short_proteome}.blast_report.txt")
+system("cp long_blast_report.txt #{long_proteome}.blast_report.txt")
 system("rm trash1 trash2")
 system("rm short* long*")
