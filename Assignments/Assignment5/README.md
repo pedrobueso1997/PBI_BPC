@@ -29,6 +29,7 @@ The SPARQL query is:
 **Number of Arabidopsis thaliana protein records in UniProt?**
 
 The result is: 89,182
+
 The SPARQL query is:
 
     SELECT (COUNT (DISTINCT ?protein) AS ?num_proteins)
@@ -42,6 +43,7 @@ The SPARQL query is:
 **Description of the enzyme activity of UniProt Protein Q9SZZ8?**
 
 The result is: "Beta-carotene + 4 reduced ferredoxin [iron-sulfur] cluster + 2 H(+) + 2 O(2) = zeaxanthin + 4 oxidized ferredoxin [iron-sulfur] cluster + 2 H(2)O"
+
 The SPARQL query is:
 
     SELECT ?activity_description
@@ -68,6 +70,7 @@ The SPARQL  query is:
 **Number of species in the UniProt taxonomy**
 
 The result is: 2,506,674
+
 The SPARQL query is:
 
     SELECT (COUNT (DISTINCT ?organism) AS ?num_organisms)
@@ -134,6 +137,7 @@ The SPARQL query is:
 **Number of Reactome pathways assigned to Arabidopsis thaliana?**
 
 The result is: 809
+
 The SPARQL query is:
 
     SELECT (COUNT (DISTINCT ?pathway) AS ?number_pathways)
