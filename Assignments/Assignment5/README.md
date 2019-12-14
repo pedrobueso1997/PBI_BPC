@@ -1,3 +1,7 @@
+#ASSIGNMENT 5
+
+This assignment consists on building SPARQL queries to retrieve data from some biological databases.
+
 ###PREFIXES
 
     PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
