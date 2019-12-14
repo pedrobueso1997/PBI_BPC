@@ -1,8 +1,8 @@
-#ASSIGNMENT 5
+# ASSIGNMENT 5
 
 This assignment consists on building SPARQL queries to retrieve data from some biological databases.
 
-###PREFIXES
+### PREFIXES
 
     PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
     PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
@@ -14,7 +14,7 @@ This assignment consists on building SPARQL queries to retrieve data from some b
     PREFIX atlasterms: <http://rdf.ebi.ac.uk/terms/expressionatlas/>
     PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#>
     
-###UNIPROT QUERIES
+### UNIPROT QUERIES
 
 **Number of protein records in UniProt?**
 
@@ -109,7 +109,7 @@ The SPARQL query is:
       ?gene skos:prefLabel ?gene_name .
     }
 
-###ATLAS GENE EXPRESSION QUERIES
+### ATLAS GENE EXPRESSION QUERIES
 
 **Affymetrix probe id for the Arabiodopsis Apetala3 gene?**
 
@@ -129,7 +129,7 @@ The SPARQL query is:
       FILTER (?gene_experiment_tstat < -3)
     }
 
-###REACTOME
+### REACTOME
 
 **Number of Reactome pathways assigned to Arabidopsis thaliana?**
 
