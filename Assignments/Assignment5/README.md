@@ -69,7 +69,7 @@ The SPARQL  query is:
       FILTER (?protein_date > "2019-01-01"^^xsd:dateTime) .
     }
 
-The result is (one example): *"PLH20_FORAG"^^xsd:string	"2019-10-16"^^xsd:date*
+The result is (one example out of 58202805): *"PLH20_FORAG"^^xsd:string	"2019-10-16"^^xsd:date*
 
 **Number of species in the UniProt taxonomy**
 
@@ -79,9 +79,10 @@ The SPARQL query is:
     WHERE
     {
         ?organism rdf:type up:Taxon .
+        ?organism up:rank up:Species 
     }
 
-The result is: *"2506674"^^xsd:int*
+The result is: *"1766921"^^xsd:int*
 
 **Number of species in the UniProt taxonomy with at least one protein record**
 
@@ -92,9 +93,10 @@ The SPARQL query is:
     {
         ?protein rdf:type up:Protein .
         ?protein up:organism ?protein_organism .
+        ?protein_organism up:rank up:Species .
     }
-    
-The result is: *"1190343"^^xsd:int*
+       
+The result is: *"984622"^^xsd:int*
 
 **Gene codes and gene names for all Arabidopsis thaliana proteins that have a function annotation description that mentions “pattern formation”**
 
@@ -118,7 +120,7 @@ The SPARQL query is:
       ?gene skos:prefLabel ?gene_name .
     }
 
-The result is (one example): *"At1g63700"^^xsd:string	"YDA"^^xsd:string*
+The result is (one example out of 15): *"At1g63700"^^xsd:string	"YDA"^^xsd:string*
 
 ### ATLAS GENE EXPRESSION QUERIES
 
@@ -136,7 +138,7 @@ The SPARQL query is:
       FILTER (?gene_experiment_tstat < -3)
     }
 
-The result is (one example): *"AP3 DOWN in 'RRM variant' vs 'wild type genotype' in '18 day'"^^xsd:string*
+The result is (one example out of 11): *"AP3 DOWN in 'RRM variant' vs 'wild type genotype' in '18 day'"^^xsd:string*
 
 ### REACTOME
 
@@ -167,7 +169,7 @@ The SPARQL query is:
       ?pathway_reference biopax3:db "Pubmed"^^xsd:string .
     }
 
-The result is (one example): *http://identifiers.org/pubmed/21087458*
+The result is (one example out of 7): *http://identifiers.org/pubmed/21087458*
 
 **Proof that all Arabidopsis pathway annotations in Reactome are "inferred from electronic annotation"**
 
