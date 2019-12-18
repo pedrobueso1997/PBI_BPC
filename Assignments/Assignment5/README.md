@@ -18,6 +18,8 @@ This assignment consists on building SPARQL queries to retrieve data from some b
 
 **Number of protein records in UniProt?**
 
+The result is: 281,303,435
+
 The SPARQL query is:
 
     SELECT (COUNT (DISTINCT ?protein) AS ?num_proteins)
@@ -81,6 +83,8 @@ The SPARQL query is:
 
 **Number of species in the UniProt taxonomy with at least one protein record**
 
+The result is: 1,190,343
+
 The SPARQL query is:
 
     SELECT (COUNT (DISTINCT ?protein_organism) AS ?num_protein_organisms)
@@ -113,10 +117,6 @@ The SPARQL query is:
     }
 
 ### ATLAS GENE EXPRESSION QUERIES
-
-**Affymetrix probe id for the Arabiodopsis Apetala3 gene?**
-
-The SPARQL query is:
 
 **Experimental description for all experiments where Arabidopsis Apetala3 gene is DOWN regulated**
 
@@ -163,16 +163,18 @@ The SPARQL query is:
     
 **Proof that all Arabidopsis pathway annotations in Reactome are "inferred from electronic annotation"**
 
+The result is: there are 809 pathways in Arabidopsis and 809 pathways in Arabidopsis with the label "electronic_inference"  
+
 The SPARQL query is:
 
-    SELECT DISTINCT ?pathway_data_source_description
+    SELECT (COUNT (?pathway) AS ?number_pathways) (COUNT(?pathway_description) AS ?number_pathway_descriptions)
     WHERE 
     {
       ?pathway rdf:type biopax3:Pathway .
       
       ?pathway biopax3:organism ?pathway_organism .
       ?pathway_organism rdfs:label "Arabidopsis thaliana (Identifiers.org)" .
-      
-      ?pathway biopax3:dataSource ?pathway_data_source .
-      ?pathway_data_source biopax3:comment ?pathway_data_source_description .
+      ?pathway biopax3:comment ?pathway_description .
+      FILTER CONTAINS (?pathway_description, "electronic_inference") .
     }
+    
