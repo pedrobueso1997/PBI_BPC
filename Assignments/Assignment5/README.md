@@ -18,8 +18,6 @@ This assignment consists on building SPARQL queries to retrieve data from some b
 
 **Number of protein records in UniProt?**
 
-The result is: 281,303,435
-
 The SPARQL query is:
 
     SELECT (COUNT (DISTINCT ?protein) AS ?num_proteins)
@@ -28,9 +26,9 @@ The SPARQL query is:
       ?protein rdf:type up:Protein .
     }
 
-**Number of Arabidopsis thaliana protein records in UniProt?**
+The result is: *"281303435"^^xsd:int*
 
-The result is: 89,182
+**Number of Arabidopsis thaliana protein records in UniProt?**
 
 The SPARQL query is:
 
@@ -42,19 +40,21 @@ The SPARQL query is:
       ?protein_organism up:scientificName "Arabidopsis thaliana" .
     }
 
-**Description of the enzyme activity of UniProt Protein Q9SZZ8?**
+The result is: *"89182"^^xsd:int*
 
-The result is: "Beta-carotene + 4 reduced ferredoxin [iron-sulfur] cluster + 2 H(+) + 2 O(2) = zeaxanthin + 4 oxidized ferredoxin [iron-sulfur] cluster + 2 H(2)O"
+**Description of the enzyme activity of UniProt Protein Q9SZZ8?**
 
 The SPARQL query is:
 
-    SELECT ?activity_description
+    SELECT ?enzyme_activity_description
     WHERE
     {
       uniprotkb:Q9SZZ8 up:enzyme ?enzyme .
       ?enzyme up:activity ?enzyme_activity . 
       ?enzyme_activity rdfs:label ?enzyme_activity_description .
     }
+    
+The result is: *"Beta-carotene + 4 reduced ferredoxin [iron-sulfur] cluster + 2 H(+) + 2 O(2) = zeaxanthin + 4 oxidized ferredoxin [iron-sulfur] cluster + 2 H(2)O"^^xsd:string*
 
 **Proteins id and date of submission for proteins that have been added to UniProt this year**
 
@@ -69,9 +69,9 @@ The SPARQL  query is:
       FILTER (?protein_date > "2019-01-01"^^xsd:dateTime) .
     }
 
-**Number of species in the UniProt taxonomy**
+The result is (one example): *"PLH20_FORAG"^^xsd:string	"2019-10-16"^^xsd:date*
 
-The result is: 2,506,674
+**Number of species in the UniProt taxonomy**
 
 The SPARQL query is:
 
@@ -81,9 +81,9 @@ The SPARQL query is:
         ?organism rdf:type up:Taxon .
     }
 
-**Number of species in the UniProt taxonomy with at least one protein record**
+The result is: *"2506674"^^xsd:int*
 
-The result is: 1,190,343
+**Number of species in the UniProt taxonomy with at least one protein record**
 
 The SPARQL query is:
 
@@ -93,10 +93,12 @@ The SPARQL query is:
         ?protein rdf:type up:Protein .
         ?protein up:organism ?protein_organism .
     }
+    
+The result is: *"1190343"^^xsd:int*
 
 **Gene codes and gene names for all Arabidopsis thaliana proteins that have a function annotation description that mentions “pattern formation”**
 
-The SPARQL query is:
+The SPARQL query is: 
 
     SELECT DISTINCT ?gene_code ?gene_name
     WHERE
@@ -116,6 +118,8 @@ The SPARQL query is:
       ?gene skos:prefLabel ?gene_name .
     }
 
+The result is (one example): *"At1g63700"^^xsd:string	"YDA"^^xsd:string*
+
 ### ATLAS GENE EXPRESSION QUERIES
 
 **Experimental description for all experiments where Arabidopsis Apetala3 gene is DOWN regulated**
@@ -132,11 +136,11 @@ The SPARQL query is:
       FILTER (?gene_experiment_tstat < -3)
     }
 
+The result is (one example): *"AP3 DOWN in 'RRM variant' vs 'wild type genotype' in '18 day'"^^xsd:string*
+
 ### REACTOME
 
 **Number of Reactome pathways assigned to Arabidopsis thaliana?**
-
-The result is: 809
 
 The SPARQL query is:
 
@@ -147,6 +151,8 @@ The SPARQL query is:
       ?pathway biopax3:organism ?pathway_organism .
       ?pathway_organism rdfs:label "Arabidopsis thaliana (Identifiers.org)" .
     }
+
+The result is: *"809"^^xsd:int*
 
 **PubMed references for the pathways with the name “Degradation of the extracellular matrix”**
 
@@ -160,10 +166,10 @@ The SPARQL query is:
       ?pathway biopax3:xref ?pathway_reference .
       ?pathway_reference biopax3:db "Pubmed"^^xsd:string .
     }
-    
-**Proof that all Arabidopsis pathway annotations in Reactome are "inferred from electronic annotation"**
 
-The result is: there are 809 pathways in Arabidopsis and 809 pathways in Arabidopsis with the label "electronic_inference"  
+The result is (one example): *http://identifiers.org/pubmed/21087458*
+
+**Proof that all Arabidopsis pathway annotations in Reactome are "inferred from electronic annotation"**
 
 The SPARQL query is:
 
@@ -178,3 +184,6 @@ The SPARQL query is:
       FILTER CONTAINS (?pathway_description, "electronic_inference") .
     }
     
+The result is: *"809"^^xsd:integer   "809"^^xsd:integer*
+
+This means that all pathways in Arabidopsis have the label "electronic_inference"  
