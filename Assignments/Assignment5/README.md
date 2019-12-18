@@ -134,11 +134,10 @@ The SPARQL query is:
       ?gene rdfs:label "AP3" .
       ?gene_experiment atlasterms:refersTo ?gene .
       ?gene_experiment rdfs:label ?gene_experiment_description .
-      ?gene_experiment atlasterms:tStatistic ?gene_experiment_tstat .
-      FILTER (?gene_experiment_tstat < -3)
+      ?gene_experiment rdf:type atlasterms:DecreasedDifferentialExpressionRatio .
     }
 
-The result is (one example out of 11): *"AP3 DOWN in 'RRM variant' vs 'wild type genotype' in '18 day'"^^xsd:string*
+The result is (one example out of 15): *"AP3 DOWN in 'RRM variant' vs 'wild type genotype' in '18 day'"^^xsd:string*
 
 ### REACTOME
 
