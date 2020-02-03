@@ -1,0 +1,23 @@
+require 'cgi'
+cgi = CGI.new('html4')
+
+html = cgi.html() do
+    cgi.head { cgi.title{"PolyA searcher"} } +
+    cgi.body() do
+        cgi.h1 {"PolyA searcher"} +
+        cgi.h3 {"Data by: Dr. Ane Sesma"} +
+        cgi.h3 {"Program by: Pedro Bueso-Inchausti Garcia"} +
+        cgi.p {"Hello Dr. Ane Sesma, my name is Pedro Bueso-Inchausti and I have created a website that will make your life a bit easier. \
+                A few days ago, Mark Wilkinson gave me the 4 GFF files you had prepared. As you know, they include the poly-A tail of \
+                millions of transcripts from Magnaporthe oryzae under various conditions. It is probably a bit tedious to retrieve information \
+                from these files... but don't worry! This website will free you from such a task. Just write the gene id you are interested \
+                in and the webpage will show the polyA sites it contains and under which conditions they appear. It also includes some \
+                information on the gene, which might be of interest. Give it a try!"} +
+        cgi.p {"These are a few examples: MGG_17930, MGG_00958, MGG_07571, EFMOG00000000154"} +
+        cgi.form("POST", "./database_explorer.rb") do
+            "Insert the gene ID" + cgi.text_field("id", "")
+        end
+    end
+end
+
+cgi.out("text/html"){ CGI.pretty(html) }
