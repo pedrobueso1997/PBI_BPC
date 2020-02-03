@@ -1,10 +1,10 @@
-## ASSIGNMENT 1
+# ASSIGNMENT 1
 
 In order to run this program, write the following command in the Linux shell (all the files except the last one must be available in the same folder)
 
 *$ ruby process_database.rb  gene_information.tsv  seed_stock_data.tsv  cross_data.tsv  new_stock_file.tsv*
 
-### process_database.rb
+## process_database.rb
 
 This file does two things:
 
@@ -100,7 +100,7 @@ A cross object has the following methods:
     #property: it returns the value for a property
     #property=(value): it assigns the value for a property
 
-### gene_information.tsv
+## gene_information.tsv
 
 This file contains information about genes in the following format:
 
@@ -108,20 +108,20 @@ This file contains information about genes in the following format:
 |:------|:-------:|---------------:|
 
 
-### seed_stock_data.tsv
+## seed_stock_data.tsv
 
 This file contains information about seed stocks in the following format:
 
 |Seed_Stock|Mutant_Gene_ID|Last_Planted|Storage|Grams_Remaining|
 |:---------|:------------:|:----------:|:-----:|--------------:|
 
-### cross_data.tsv
+## cross_data.tsv
 
 This file contains information about crosses between seed stocks in the following format:
 
 |Parent1|Parent2|F2_Wild|F2_P1|F2_P2|F2_P1P2|
 |:------|:-----:|:-----:|:---:|:---:|------:|
 
-### new_stock_file.tsv
+## new_stock_file.tsv
 
 This is a newly generated file, with the same format as seed_stock_data.tsv but with modified content
