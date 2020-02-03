@@ -13,7 +13,7 @@ This file does two things:
 
 It uses the following class files (they need to be in the same folder):
 
-**GeneObject.rb**
+### GeneObject.rb
 
 This file defines the class Gene
 
@@ -41,7 +41,7 @@ A gene object has the following methods:
     #property: it returns the value for a property
     #property=(value): it assigns the value for a property
 
-**SeedstockObject.rb**
+### SeedstockObject.rb
 
 This file defines the class Seedstock
 
@@ -70,7 +70,7 @@ A seed stock object has the following methods:
     #property: it returns the value for a property
     #property=(value): it assigns the value for a property
 
-**CrossObject.rb**
+### CrossObject.rb
 
 This file defines the class Cross
 
