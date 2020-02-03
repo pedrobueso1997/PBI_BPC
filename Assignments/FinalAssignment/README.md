@@ -1,3 +1,5 @@
+# FINAL ASSIGNMENT
+
 This assignment involves the creation of a webpage with bioinformatic purposes. I received 4 GFF files with the poly-A tail of thousands of transcript from Magnaporthe oryzae under various conditions. Since it is a bit tedius to retrieve information from these files, the website makes things much easier. Just write the gene id you are interested in and the webpage will show the polyA sites it contains and under which conditions they appear. It also includes some information on the gene, which might be of interest
 
 The files included are the following:
