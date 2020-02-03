@@ -1,0 +1,23 @@
+#html = cgi.html() do
+#    cgi.head { cgi.title{"PolyA searcher"} } +
+#    cgi.body() do
+#        cgi.h2 {"Organism"} +
+#        cgi.p {"<b>Identifier</b>: #{result[:org_id]}"} +
+#        cgi.p {"<b>Name</b>: #{result[:org_name]}"} +
+#        cgi.h2 {"Chromosome"} +
+#        cgi.p {"<b>Number</b>: #{result[:chr_name]}"} +
+#        cgi.h2 {"Gene"} +
+#        cgi.p {"<b>Identifier</b>: #{ID}"} +
+#        cgi.p {"<b>Name</b>: #{result[:gene_name]}"} +
+#        cgi.p {"<b>Position in the chromosome</b>: #{result[:gene_chr_pos]}"} +
+#        cgi.p {"<b>Length (nucleotides)</b>: #{result[:gene_length]}"} +
+#        cgi.p {"<b>Regions converted to mRNA</b>: #{result[:mrna_pos]}" unless result[:mrna_pos] == "Undefined"}  +
+#        cgi.p {"<b>Regions converted to CDS</b>: #{result[:cds_pos]}" unless result[:cds_pos] == "Undefined"} +
+#        cgi.p {"<b>Regions converted to misc_RNA</b>: #{result[:misc_rna_pos]}" unless result[:misc_rna_pos] == "Undefined"}  +
+#        cgi.p {"<b>Sequence</b>: #{result[:gene_seq].to_s.upcase}"} +
+#        cgi.h2 {"Protein" unless result[:protein_id] == "Undefined"} +
+#        cgi.p {"<b>Identifier</b>: #{result[:protein_id]}" unless result[:protein_id] == "Undefined"} +
+#        cgi.p {"<b>Length (amino acids)</b>: #{result[:protein_length]}" unless result[:protein_length] == "Undefined"} +
+#        cgi.p {"<b>Sequence</b>: #{result[:protein_seq].to_s.upcase}" unless result[:protein_seq] == "Undefined"}
+#    end
+#end
